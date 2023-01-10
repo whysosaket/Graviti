@@ -6,7 +6,7 @@ const Input = (props) => {
     <div>
       <div className="container">
         <div className="form-group row">
-          <div className="col-xs-2 w-25">
+          <div className="col-xs-2 w-100">
             <label for={label} className="locationtag">{label}</label>
             <input className="form-control locationinput my-2" id={label} type="text" placeholder={inputText} />
           </div>
