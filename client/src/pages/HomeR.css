@@ -1,0 +1,44 @@
+@media (max-aspect-ratio: 8/10) {
+
+    .title{
+        display: none;
+    }
+
+    .w-50{
+        min-width: 100%;
+    }
+
+    .jum-top .w-50{
+        min-width: 50%!important;
+    }
+
+    .d-flex, .d-inline-block{
+        display: block;
+    }
+
+    .left, .right{
+        width: 100%;
+    }
+
+    .calculate {
+        position: relative;
+        top: 0%;
+    }
+
+    .right{
+        margin-bottom: 2rem;
+    }
+
+    .half{
+        min-width: 95%;
+    }
+
+    .map{
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .jumbotron{
+        width: 100%;
+    }
+  }

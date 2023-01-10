@@ -22,6 +22,11 @@ h5 {
   width: 50%;
 }
 
+.right{
+  float: right;
+  width: 50%;
+}
+
 .lefttop{
   margin-bottom: 2rem;
 }
