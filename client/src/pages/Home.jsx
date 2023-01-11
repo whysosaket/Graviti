@@ -10,7 +10,7 @@ import {
 } from "@react-google-maps/api";
 
 const Home = () => {
-  const center = { lat: 48.8584, lng: 2.2945 };
+  const center = { lat: 19.0760, lng: 72.8777 };
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -23,6 +23,7 @@ const Home = () => {
   const originRef = useRef();
   const destinationRef = useRef();
   const stopRef = useRef();
+  const transportRef = useRef();
 
   const [waypoints, setWaypoints] = useState([]);
 
@@ -50,16 +51,19 @@ const Home = () => {
     stopRef.current.value = "";
   };
 
+  
+
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
 
   async function calculateRoute() {
-    console.log(originRef.current.value);
+    let trans = transportRef.current.value;
     console.log(destinationRef.current.value);
     if (originRef.current.value === "" || destinationRef.current.value === "") {
       return;
     }
+
 
     // eslint-disable-next-line no-undef
     const directionsService = new google.maps.DirectionsService();
@@ -68,7 +72,7 @@ const Home = () => {
       destination: destinationRef.current.value,
       waypoints: waypoints,
       // eslint-disable-next-line no-undef
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: trans === "DRIVING" ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING,
     });
     setDirectionsResponse(results);
     setDistance(results.routes[0].legs[0].distance.text);
@@ -86,7 +90,7 @@ const Home = () => {
           <div className="map mx-auto">
             <GoogleMap
               center={center}
-              zoom={15}
+              zoom={10}
               mapContainerStyle={{ width: "100%", height: "100%" }}
               options={{
                 zoomControl: false,
@@ -177,6 +181,19 @@ const Home = () => {
               </div>
             </div>
             <div className="leftright w-50">
+              <div className="container">
+                <div className="form-group row">
+                  <div className="col-xs-2 w-100">
+                    <label for="Transportation" className="locationtag">
+                      Transportation
+                    </label>
+                    <select className="form-control locationinput my-2" ref={transportRef}>
+                      <option>DRIVING</option>
+                      <option>WALKING</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
               <div className="calculate text-center">
                 <button className="btn btn-lg" onClick={calculateRoute}>
                   Calculate
