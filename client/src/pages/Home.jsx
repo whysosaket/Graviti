@@ -30,7 +30,6 @@ const Home = () => {
   const [numWaypoints, setNumWaypoints] = useState(0);
 
   const addWaypoint = () => {
-    console.log(stopRef.current.value);
     setWaypoints([
       ...waypoints,
       {
@@ -59,7 +58,6 @@ const Home = () => {
 
   async function calculateRoute() {
     let trans = transportRef.current.value;
-    console.log(destinationRef.current.value);
     if (originRef.current.value === "" || destinationRef.current.value === "") {
       return;
     }
