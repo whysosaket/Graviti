@@ -83,6 +83,8 @@ h5 {
 }
 
 .map{
-  width: 85%;
+  display: inline-block;
+  min-width: 85%;
+  min-height: 60vh;
   box-shadow: #1E2A32 0px 0px 10px;
 }
