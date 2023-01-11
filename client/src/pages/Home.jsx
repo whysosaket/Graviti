@@ -22,24 +22,23 @@ const Home = () => {
 
   const originRef = useRef();
   const destinationRef = useRef();
+  const stopRef = useRef();
 
-  const [waypoints, setWaypoints] = useState([
-    { location:  'Patna, Bihar' , stopover: true },
-  ]);
+  const [waypoints, setWaypoints] = useState([]);
 
   const [numWaypoints, setNumWaypoints] = useState(0);
-  const [waypoint, setWaypoint] = useState("");
 
   const addWaypoint = () => {
+    console.log(stopRef.current.value);
     setWaypoints([
       ...waypoints,
       {
-        location: waypoint,
+        location: stopRef.current.value,
         stopover: true,
       },
     ]);
     setNumWaypoints(numWaypoints + 1);
-
+    stopRef.current.value = "";
   };
 
 
@@ -121,22 +120,30 @@ const Home = () => {
                 <div className="container">
                   <div className="form-group row">
                     <div className="col-xs-2 w-100">
+                    
+                    
+
                       <label for="AddStop" className="locationtag">
-                        Stop
+                        Stop{waypoints.length>1 ? 's' : ''}
                       </label>
+
+                      {waypoints.map((waypoint, index) => (
+                        <div key={index}> <span className="waypoint">{waypoint.location} </span></div>
+                        ))}
                       <Autocomplete>
                         <input
                           className="form-control locationinput my-2"
                           id="AddStop"
                           type="text"
                           placeholder="Add Stop"
+                          ref={stopRef}
                         />
                       </Autocomplete>
                     </div>
                   </div>
                 </div>
 
-                <div className="add-stop">
+                <div className="add-stop" onClick={addWaypoint}>
                   <i className="fa-solid fa-circle-plus d-inline-block"></i>
                   <p className="d-inline-block mx-2">Add another stop</p>
                 </div>

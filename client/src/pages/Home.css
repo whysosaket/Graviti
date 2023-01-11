@@ -88,3 +88,13 @@ h5 {
   min-height: 60vh;
   box-shadow: #1E2A32 0px 0px 10px;
 }
+
+.waypoint{
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  color: #1E2A32;
+  display: list-item;                                         
+  margin-left : 2rem;
+}
