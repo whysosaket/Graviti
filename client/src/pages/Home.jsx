@@ -41,6 +41,14 @@ const Home = () => {
     stopRef.current.value = "";
   };
 
+  const clear = () => {
+    setWaypoints([]);
+    setNumWaypoints(0);
+    setDistance("");
+    originRef.current.value = "";
+    destinationRef.current.value = "";
+    stopRef.current.value = "";
+  };
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -120,16 +128,16 @@ const Home = () => {
                 <div className="container">
                   <div className="form-group row">
                     <div className="col-xs-2 w-100">
-                    
-                    
-
                       <label for="AddStop" className="locationtag">
-                        Stop{waypoints.length>1 ? 's' : ''}
+                        Stop{waypoints.length > 1 ? "s" : ""}
                       </label>
 
                       {waypoints.map((waypoint, index) => (
-                        <div key={index}> <span className="waypoint">{waypoint.location} </span></div>
-                        ))}
+                        <div key={index}>
+                          {" "}
+                          <span className="waypoint">{waypoint.location}</span>
+                        </div>
+                      ))}
                       <Autocomplete>
                         <input
                           className="form-control locationinput my-2"
@@ -172,6 +180,9 @@ const Home = () => {
               <div className="calculate text-center">
                 <button className="btn btn-lg" onClick={calculateRoute}>
                   Calculate
+                </button><br />
+                <button className="btn btn-lg" onClick={clear}>
+                  Clear
                 </button>
               </div>
             </div>

@@ -57,11 +57,12 @@ h5 {
   background: #1b31a8;
   border-radius: 32px;
   color: white;
+  margin: 0.3rem auto;
 }
 
 .calculate {
   position: relative;
-  top: 50%;
+  top: 40%;
 }
 
 .jum-top{
@@ -97,4 +98,15 @@ h5 {
   color: #1E2A32;
   display: list-item;                                         
   margin-left : 2rem;
+  font-size: small;
+}
+
+.fa-xmark{
+  color: #f01e1e;
+  margin-left: 1rem;
+}
+
+.fa-xmark:hover{
+  color: #ff0000;
+  margin-left: 1rem;
 }

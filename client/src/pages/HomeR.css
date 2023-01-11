@@ -41,4 +41,12 @@
     .jumbotron{
         width: 100%;
     }
+
+    .fa-xmark{
+        font-size: x-large;
+    }
+
+    .leftbottom{
+        margin-bottom: 2rem;
+    }
   }
